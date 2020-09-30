@@ -39,7 +39,7 @@
     head->end 로 스택 초기화</pre>
     - Push
     <pre>
-    1. num을 받은 후 새로운 노드 생성
+    1. num을 받은 후 새로운 노드(ptrNode) 생성
     2. 새로운 노드에 num값 추가
     3. ptrNode->Next 를 head->Next로 연결
     4. head-> Next를 ptrNode로 
@@ -49,4 +49,4 @@
     매개변수가 없는 대신 리턴 값. 
     1. ptrNode = head->Next (가장 최근에 push된 데이터를 ptrNode로)
     2. head->Next 를 head->Next->Next로 연결
-    3. free(ptrNode) ptrNode에 할당 된 메모리 회수
+    3. free(ptrNode) ptrNode에 할당 된 메모리 회수</pre>
