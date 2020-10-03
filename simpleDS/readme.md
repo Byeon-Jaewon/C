@@ -1,6 +1,3 @@
-
-
-
 ## 자료구조
 ***
 - 단방향 링크드리스트
@@ -50,3 +47,33 @@
     1. ptrNode = head->Next (가장 최근에 push된 데이터를 ptrNode로)
     2. head->Next 를 head->Next->Next로 연결
     3. free(ptrNode) ptrNode에 할당 된 메모리 회수</pre>
+
+- 큐(배열)
+  - Initialize
+  <pre>
+  front와 rear를 0으로 초기화해줌으로써 큐를 비움
+  </pre>
+  - Put과 Get
+  <pre>
+  put : num을 받고 큐에 추가한 다음 Rear를 1 증가
+        Rear이 Max를 넘으면 다시 0으로 초기화
+  get : ret변수에 큐의 첫번째 값을 넘기고 front를 1 증가
+        Front가 Max를 넘기면 다시 0으로
+  </pre>
+- 큐(연결 리스트)
+  - front와 rear의 Next를 둘 다 rear로 초기화
+  - Put
+  <pre>
+  큐가 비어있다면, 1. front의 next를 새 노드에
+  2. 새 노드의 next를 rear에
+  3. rear의 next를 새 노드로 연결
+  큐가 비어있지 않다면, 1. rear->next->next를 새 노드에 연결
+  2. 새 노드의 next를 rear에 연결
+  3. rear->next를 새 노드에 연결
+  </pre>
+  - Get
+  <pre>
+  큐가 비어있다면 메세지 출력
+  큐가 비어있지 않다면, 1. deleteNode에 front->next를 연결
+  2. front->next를 deleteNode->Next로 연결
+  3. deleteNode->Data 출력 후 메모리 회수
