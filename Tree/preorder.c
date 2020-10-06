@@ -14,6 +14,7 @@ void Visit(NODE *);
 NODE *Parent, *Leftchild, *Rightchild;
 NODE *HeadNode, *EndNode;
 
+//트리 초기화
 void InitTree(void){
     HeadNode = (NODE *)malloc(sizeof(NODE));
     EndNode = (NODE *)malloc(sizeof(NODE));
@@ -24,6 +25,8 @@ void InitTree(void){
     EndNode->Left = EndNode;
     EndNode->Right = EndNode;
 }
+
+//트리 구성
 void MakeTree(void){
     Parent = (NODE *)malloc(sizeof(NODE));
     Parent->Data = 'A';
