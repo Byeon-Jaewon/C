@@ -76,4 +76,4 @@
   큐가 비어있다면 메세지 출력
   큐가 비어있지 않다면, 1. deleteNode에 front->next를 연결
   2. front->next를 deleteNode->Next로 연결
-  3. deleteNode->Data 출력 후 메모리 회수
+  3. deleteNode->Data 출력 후 메모리 회수</pre>
