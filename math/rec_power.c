@@ -4,5 +4,5 @@ int		rec_power(int nb, int power)
 		return (1);
 	if (power < 0)
 		return (0);
-	return (nb * power(nb, power - 1));
+	return (nb * power(nb, rec_power - 1));
 }
