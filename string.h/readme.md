@@ -2,8 +2,6 @@
 C 형식 문자열(널 종료 문자열을 다룰 수 있는 함수들을 포함한다.)
 **********************
 #### 문자열 복사
-- memcpy
-- memmove
 - strcpy
 <pre>char strcpy(char *dest, char *src)</pre>
 > src가 가리키는 문자열을 dest가 가리키는 곳에 복사한다.   
@@ -40,7 +38,6 @@ C 형식 문자열(널 종료 문자열을 다룰 수 있는 함수들을 포함
 > 결합되는 문자열의 총 길이를 반환한다.
 
 #### 문자열 비교
-- memcmp
 - strcmp
 <pre> int strcmp(char *s1, char *s2) </pre>
 > 문자열 s1과 s2를 비교한다.   
