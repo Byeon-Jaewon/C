@@ -1,7 +1,12 @@
-## <string.h>
+# <string.h>
 C 형식 문자열(널 종료 문자열을 다룰 수 있는 함수들을 포함한다.)
+   
+size_t 타입
+> C에서 임의의 객체가 가질 수 있는 최대크기를 나타냄. 크기를 표현하므로 부호없는 정수 이용.   
+> size_t타입을 쓰는 이유는 시스템에서 주소지정이 가능한 메모리영역과 일치하는 크기를 선언하는 이식 가능한 방법을 제공하기 위해.
+
 **********************
-#### 문자열 복사
+## 문자열 복사
 - strcpy
 <pre>char strcpy(char *dest, char *src)</pre>
 > src가 가리키는 문자열을 dest가 가리키는 곳에 복사한다.   
@@ -19,7 +24,7 @@ C 형식 문자열(널 종료 문자열을 다룰 수 있는 함수들을 포함
 > dst[size]에 \0을 붙혀준다.   
 > src의 크기를 리턴한다.
 
-#### 문자열 합치기
+## 문자열 합치기
 - strcat
 <pre>char *strcat(char *dest, char *src)</pre>
 > dest의 끝에 src를 더하게 된다.   
@@ -37,7 +42,7 @@ C 형식 문자열(널 종료 문자열을 다룰 수 있는 함수들을 포함
 > dest의 마지막 위치에 src를 size-(dest의 길이)-1 만큼 복사하고 끝에 널문자를 삽입한다.   
 > 결합되는 문자열의 총 길이를 반환한다.
 
-#### 문자열 비교
+## 문자열 비교
 - strcmp
 <pre> int strcmp(char *s1, char *s2) </pre>
 > 문자열 s1과 s2를 비교한다.   
@@ -51,9 +56,39 @@ C 형식 문자열(널 종료 문자열을 다룰 수 있는 함수들을 포함
 > n개의 문자가 모두 일치한다면 0을 리턴    
 > 비교한 n개의 문자 중 최초로 일치하지 않는 문자에서, s1 - s2를 리턴한다.
 
-#### 문자열 검색 
+## 문자열 검색 
 - strstr
 <pre>char *strstr(char *str, char *to_find)</pre>
 > str에서 to_find를 검색하여 가장 먼저 나타나는 곳의 위치를 리턴한다.   
 > 일치하는 문자열이 없다면, 널포인터를 리턴하게 된다.   
 > 검색에서 마지막 널문자는 포함하지 않는다.
+
+## 메모리
+- memset
+<pre>void* memset(void* ptr, int value, size_t num);</pre>
+> ptr로 시작하는 메모리 주소부터 num개의 바이트를 value값으로 채운다.   
+> 이 때 value는 unsigned char로 형변환 된다.
+> ptr이 리턴된다.
+- memcpy
+<pre>void* memcpy(void* dest, const void* src, size_t num);</pre>
+> src가 가리키는 곳 부터 num 바이트 만큼을 dest가 가리키는 곳에 복사한다.   
+> dest와 src의 타입은 무관. src의 널문자를 검사하지 않고 정확히 num바이트 만큼을 복사.   
+> 오버플로우를 방지하기 위해 dest와 src가 가리키는 배열의 크기는 num바이트 이상이여야 하며, 서로 겹치면 안된다.
+> dest가 리턴된다.
+- memmove
+<pre>void* memmove(void* dest, const void* src, size_t num);</pre>
+> src가 가리키는 곳부터 num바이트 만큼을 dest가 가리키는 곳으로 옮긴다.   
+> 메모리 복사 수행 시, 중간에 버퍼를 이용하게 되므로 범위가 겹쳐져도 문제 없다.   
+>  dest와 src의 타입은 무관. src의 널문자를 검사하지 않고 정확히 num바이트 만큼을 복사.   
+> 오버플로우를 방지하기 위해 dest와 src가 가리키는 배열의 크기는 num바이트 이상이여야 하며, 서로 겹치면 안된다.
+> dest가 리턴된다.
+- memchr
+<pre>void *memchr(const void *ptr, int value, size_t n); </pre>
+> ptr이 가리키는 메모리의 처음 n바이트 중에서 처음으로 value와 일치하는 값의 주소를 리턴.   
+> value는 찾을 값으로 int 로 전달되지만 함수 내부적으로는 한바이트씩 비교하기 때문에 이 값은 unsigned char 로 변환되어 사용됨.   
+> 메모리블록에서 value와 일치하는 값이 있다면 그 곳의 주소를 리턴하고 값을 찾지 못한다면 NULL을 리턴.
+- memcmp
+<pre>int memcmp(const void* ptr1, const void* ptr2, size_t num);</pre>
+> 두개의 메모리 블록 비교   
+> ptr1이 가리키는 처음 num바이트의 데이터와 ptr2가 가리키는 처음 num바이트의 데이터를 비교하여 이들이 같다면 0을 리턴하고 다르다면 0이 아닌 값을 리턴.   
+> ptr1 - ptr2 를 리턴..
