@@ -124,6 +124,13 @@ size_t 타입
 > little문자열이 big의 문자열에 존재하지 않는 경우 NULL을 리턴한다.   
 > little문자열이 있다면, 찾은 문자열중 첫 글자를 가리키는 포인터를 리턴한다.
 
+- strchr
+<pre>char *strchr(const char *s, int c);</pre>
+
+> 문자열 s에 문자 c가 있는지 확인.   
+> 해당문자가 존재한다면 존재하는 곳의 포인터를 반환.   
+> 존재하지 않는다면 NULL반환.   
+
 - memchr
 <pre>void *memchr(const void *s, int c, size_t n); </pre>
 
