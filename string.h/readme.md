@@ -30,7 +30,7 @@ size_t 타입
 > src의 크기를 리턴한다.
 
 - memcpy
-<pre>void* memcpy(void* dest, const void* src, size_t num);</pre>
+<pre>void* memcpy(void *dest, const void* src, size_t num);</pre>
 
 > src가 가리키는 곳 부터 num 바이트 만큼을 dest가 가리키는 곳에 복사한다.   
 > dest와 src의 타입은 무관. src의 널문자를 검사하지 않고 정확히 num바이트 만큼을 복사.   
