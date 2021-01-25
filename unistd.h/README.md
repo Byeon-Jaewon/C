@@ -11,7 +11,7 @@ POSIX 운영 체제 API에 대한 액세스를 제공하는 헤더파일.
 >   
 읽어들인 데이터의 길이를 반환.   
 무조건 n이 리턴되는 것이 아니라 중간에 EOF를 만난다면 거기까지 읽은 결과만을 리턴.
-한번 read후 다시 read하게 된다면 그전에 읽은 바이트 후부터 다시 read수행..
+한번 read후 다시 read하게 된다면 그전에 읽은 바이트 후부터 다시 read수행..(커서의 변경..)
 
 - write
 <pre>ssize_t write(int fd, const void *buf, size_t n)</pre>
